@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Τσιντσιλά</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         html, body {
             font-size: 16px;
             font-family: "Open Sans", Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -51,6 +54,7 @@
 <script type="module">
     import vttParser from './vttParser.js';
 
+    const highlightIdPrefix = "highlight-";
     fetch(`Τσιντσιλά.vtt`)
         .then(r => r.text())
         .then(vttParser)
@@ -65,7 +69,7 @@
             const h1 = document.createElement('h1');
             let span = document.createElement('span');
             span.innerText = heading.text;
-            span.id = 'Τσιντσιλά-' + heading.id;
+            span.id = highlightIdPrefix + heading.id;
             span.onclick = () => {
                 audio.currentTime = heading.from / 1000;
             };
@@ -81,7 +85,7 @@
             paragraphEntries.forEach(entry => {
                 span = document.createElement('span');
                 span.innerText = entry.text;
-                span.id = 'Τσιντσιλά-' + entry.id;
+                span.id = highlightIdPrefix + entry.id;
                 span.onclick = () => {
                     audio.currentTime = entry.from / 1000;
                 };
@@ -94,25 +98,27 @@
             return [entries, audio];
         })
         .then(([entries, audioElement]) => {
-            let prevEl = null;
+            let previouslyHighlightedElement = null;
+            const addHighlight = element => element.style.setProperty('background', 'yellow');
+            const removeHighlight = element => element.style.removeProperty('background');
             audioElement.addEventListener('timeupdate', e => {
-                let didSet = false;
+                let didHighlightElement = false;
                 entries.forEach(element => {
                     const currentTimeInMs = audioElement.currentTime * 1000;
                     if (currentTimeInMs >= element.from && currentTimeInMs <= element.to) {
-                        const el = document.getElementById('Τσιντσιλά-' + element.id);
-                        if (prevEl !== null && prevEl !== el) {
-                            prevEl.style.background = 'initial';
+                        const nextHighlightedElement = document.getElementById(highlightIdPrefix + element.id);
+                        if (previouslyHighlightedElement && previouslyHighlightedElement !== nextHighlightedElement) {
+                            removeHighlight(previouslyHighlightedElement);
                         }
-                        el.style.background = 'yellow';
-                        prevEl = el;
-                        didSet = true;
+                        addHighlight(nextHighlightedElement);
+                        previouslyHighlightedElement = nextHighlightedElement;
+                        didHighlightElement = true;
                     }
                 });
-                if (!didSet && prevEl !== null) {
-                    prevEl.style.background = 'initial';
+                if (!didHighlightElement && previouslyHighlightedElement) {
+                    removeHighlight(previouslyHighlightedElement);
                 }
-                didSet = false;
+                didHighlightElement = false;
             });
        });
 </script>
