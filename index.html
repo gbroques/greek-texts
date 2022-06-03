@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Τσιντσιλά</title>
+    <style>
+        html, body {
+            font-size: 16px;
+            font-family: "Open Sans", Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            float: right;
+            margin-left: 8px;
+        }
+        p {
+            font-size: 1.25rem;
+        }
+        span {
+            /* https://www.cssportal.com/css-cubic-bezier-generator/ */
+            transition: background 1s cubic-bezier(0, 1, 0.24, 1);
+        }
+        audio {
+            width: 100%;
+        }
+    </style>
+    <!--
+        TODO: Organize and document links.
+        https://manual.audacityteam.org/man/label_sounds.html
+        Audacity -> Analyze -> Label Sounds... -> Minimum silence duration 100 ms
+        http://magcius.github.io/audaciter/ - Convert Audacity labels.txt format to SRT files
+        https://www.happyscribe.com/subtitle-tools/convert-srt-to-vtt - Convert SRT to VTT
+        https://github.com/Pawper/HTML-Audio-Video-MDN/blob/master/index.html
+        https://www.w3.org/wiki/VTT_Concepts
+        https://www.greek-language.gr/certification/dbs/teachers/show.html?id=101
+        https://commons.wikimedia.org/wiki/File:Chinchilla_lanigera_(Wroclaw_zoo)-2.JPG
+    -->
+</head>
+<body>
+</body>
+<script type="module">
+    import vttParser from './vttParser.js';
+
+    fetch(`Τσιντσιλά.vtt`)
+        .then(r => r.text())
+        .then(vttParser)
+        .then(r => r.entries)
+        .then(entries => {
+            const main = document.body;
+            const heading = entries[0];
+            const h1 = document.createElement('h1');
+            let span = document.createElement('span');
+            span.innerText = heading.text;
+            span.id = 'Τσιντσιλά-' + heading.id;
+            h1.appendChild(span);
+            main.appendChild(h1);
+            const img = document.createElement('img');
+            img.src = 'Τσιντσιλά.jpg';
+            img.alt = 'Τσιντσιλά';
+            main.appendChild(img);
+            const paragraph = document.createElement('p');
+            const paragraphEntries = entries.slice(1);
+            paragraphEntries.forEach(entry => {
+                span = document.createElement('span');
+                span.innerText = entry.text;
+                span.id = 'Τσιντσιλά-' + entry.id;
+                paragraph.appendChild(span);
+                paragraph.innerHTML += ' ';
+            });
+            main.appendChild(paragraph);
+            const audio = document.createElement('audio');
+            audio.src = 'Τσιντσιλά.mp3';
+            audio.innerHTML = 'Your browser does not support the <code>audio</code> element.';
+            audio.controls = true;
+            main.appendChild(audio);
+            return [entries, audio];
+        })
+        .then(([entries, audioElement]) => {
+            let prevEl = null;
+            audioElement.addEventListener('timeupdate', e => {
+                let didSet = false;
+                entries.forEach(element => {
+                    const currentTimeInMs = audioElement.currentTime * 1000;
+                    if (currentTimeInMs >= element.from && currentTimeInMs <= element.to) {
+                        const el = document.getElementById('Τσιντσιλά-' + element.id);
+                        if (prevEl !== null && prevEl !== el) {
+                            prevEl.style.background = 'initial';
+                        }
+                        el.style.background = '#FFEB3B';
+                        prevEl = el;
+                        didSet = true;
+                    }
+                });
+                if (!didSet && prevEl !== null) {
+                    prevEl.style.background = 'initial';
+                }
+                didSet = false;
+            });
+            const removePrevEl = () => {
+                if (prevEl) {
+                    prevEl.style.background = 'initial';
+                }
+            };
+            audioElement.addEventListener('ended', removePrevEl);
+            audioElement.addEventListener('pause', removePrevEl);
+       });
+</script>
+</html>
