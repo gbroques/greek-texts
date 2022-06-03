@@ -50,32 +50,40 @@
         .then(vttParser)
         .then(r => r.entries)
         .then(entries => {
+            const audio = document.createElement('audio');
+            audio.src = 'Τσιντσιλά.mp3';
+            audio.innerHTML = 'Your browser does not support the <code>audio</code> element.';
+            audio.controls = true;
             const main = document.body;
             const heading = entries[0];
             const h1 = document.createElement('h1');
             let span = document.createElement('span');
             span.innerText = heading.text;
             span.id = 'Τσιντσιλά-' + heading.id;
+            span.onclick = () => {
+                audio.currentTime = heading.from / 1000;
+            };
             h1.appendChild(span);
             main.appendChild(h1);
             const img = document.createElement('img');
             img.src = 'Τσιντσιλά.jpg';
             img.alt = 'Τσιντσιλά';
             main.appendChild(img);
-            const paragraph = document.createElement('p');
+            const paragraph = document.createElement('p')
+
             const paragraphEntries = entries.slice(1);
             paragraphEntries.forEach(entry => {
                 span = document.createElement('span');
                 span.innerText = entry.text;
                 span.id = 'Τσιντσιλά-' + entry.id;
+                span.onclick = () => {
+                    audio.currentTime = entry.from / 1000;
+                };
                 paragraph.appendChild(span);
-                paragraph.innerHTML += ' ';
+                paragraph.appendChild(document.createTextNode(' '));
             });
             main.appendChild(paragraph);
-            const audio = document.createElement('audio');
-            audio.src = 'Τσιντσιλά.mp3';
-            audio.innerHTML = 'Your browser does not support the <code>audio</code> element.';
-            audio.controls = true;
+
             main.appendChild(audio);
             return [entries, audio];
         })
