@@ -22,10 +22,15 @@
         }
         span {
             /* https://www.cssportal.com/css-cubic-bezier-generator/ */
-            transition: background 1s cubic-bezier(0, 1, 0.24, 1);
+            transition: background 100ms ease-in;
         }
         audio {
             width: 100%;
+        }
+        main {
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
     <!--
@@ -41,6 +46,7 @@
     -->
 </head>
 <body>
+    <main id="root"></main>
 </body>
 <script type="module">
     import vttParser from './vttParser.js';
@@ -54,7 +60,7 @@
             audio.src = 'Τσιντσιλά.mp3';
             audio.innerHTML = 'Your browser does not support the <code>audio</code> element.';
             audio.controls = true;
-            const main = document.body;
+            const root = document.getElementById('root');
             const heading = entries[0];
             const h1 = document.createElement('h1');
             let span = document.createElement('span');
@@ -64,11 +70,11 @@
                 audio.currentTime = heading.from / 1000;
             };
             h1.appendChild(span);
-            main.appendChild(h1);
+            root.appendChild(h1);
             const img = document.createElement('img');
             img.src = 'Τσιντσιλά.jpg';
             img.alt = 'Τσιντσιλά';
-            main.appendChild(img);
+            root.appendChild(img);
             const paragraph = document.createElement('p')
 
             const paragraphEntries = entries.slice(1);
@@ -82,9 +88,9 @@
                 paragraph.appendChild(span);
                 paragraph.appendChild(document.createTextNode(' '));
             });
-            main.appendChild(paragraph);
+            root.appendChild(paragraph);
 
-            main.appendChild(audio);
+            root.appendChild(audio);
             return [entries, audio];
         })
         .then(([entries, audioElement]) => {
@@ -98,7 +104,7 @@
                         if (prevEl !== null && prevEl !== el) {
                             prevEl.style.background = 'initial';
                         }
-                        el.style.background = '#FFEB3B';
+                        el.style.background = 'yellow';
                         prevEl = el;
                         didSet = true;
                     }
@@ -108,12 +114,6 @@
                 }
                 didSet = false;
             });
-            const removePrevEl = () => {
-                if (prevEl) {
-                    prevEl.style.background = 'initial';
-                }
-            };
-            audioElement.addEventListener('ended', removePrevEl);
        });
 </script>
 </html>
