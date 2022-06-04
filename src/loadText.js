@@ -12,22 +12,14 @@ export default function loadText(path, root) {
     
     return Promise.all([configPromise, cuesPromise]).then(([config, cues]) => {
         const {audio: audioSrc, img: image, markup, vocabulary} = config;
-        const audio = document.createElement('audio');
-        audio.src = path + '/' +  audioSrc;
-        audio.innerHTML = 'Your browser does not support the <code>audio</code> element.';
-        audio.controls = true;
+        const audio = createAudio(path + '/' + audioSrc);
         const highlightIdPrefix = 'highlight-';
-        const cuesById = groupCuesById(cues);
+        const cueById = groupCueById(cues);
         function render(parent, children) {
             children.forEach(child => {
                 if (typeof child === 'string') {
-                    const span = document.createElement('span');
-                    const cue = cuesById[child];
-                    span.innerText = cue.text;
-                    span.id = highlightIdPrefix + cue.id;
-                    span.onclick = () => {
-                        audio.currentTime = cue.from / 1000;
-                    };
+                    const cue = cueById[child];
+                    const span = createSpan(cue, highlightIdPrefix, audio);
                     parent.appendChild(span);
                     parent.appendChild(document.createTextNode(' '));
                 } else {
@@ -84,6 +76,24 @@ export default function loadText(path, root) {
     });
 }
 
-function groupCuesById(cues) {
+function groupCueById(cues) {
     return cues.reduce((acc, cue) => ({[cue.id]: cue, ...acc}), {});
+}
+
+function createAudio(src) {
+    const audio = document.createElement('audio');
+    audio.src = src;
+    audio.innerHTML = 'Your browser does not support the <code>audio</code> element.';
+    audio.controls = true;
+    return audio;
+}
+
+function createSpan(cue, idPrefix, audio) {
+    const span = document.createElement('span');
+    span.innerText = cue.text;
+    span.id = idPrefix + cue.id;
+    span.onclick = () => {
+        audio.currentTime = cue.from / 1000;
+    };
+    return span;
 }
