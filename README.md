@@ -2,6 +2,8 @@
 
 Collection of texts from [Tράπεζα κειμένων](https://www.greek-language.gr/certification/dbs/teachers/index.html) with synced audio for learning Modern Greek.
 
+Audio is from various contributors from the [Learning Greek Discord server](https://discord.gg/greek).
+
 ## Prerequisites
 
 1. Install [Node.js](https://nodejs.org/en/).
