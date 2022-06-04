@@ -1,17 +1,17 @@
 import vttParser from './vttParser.js';
 
-export default function loadText(name, root) {
-    const configPromise = fetch(`${name}/config.json`)
+export default function loadText(path, root) {
+    const configPromise = fetch(`${path}/config.json`)
         .then(r => r.json());
 
     const cuesPromise = configPromise
-        .then(config => fetch(config.path + '/' + config.vtt))
+        .then(config => fetch(path + '/' + config.vtt))
         .then(r => r.text())
         .then(vttParser)
         .then(r => r.entries);
     
     return Promise.all([configPromise, cuesPromise]).then(([config, cues]) => {
-        const {path, vtt, audio: audioSrc, img: image, markup, vocabulary} = config;
+        const {audio: audioSrc, img: image, markup, vocabulary} = config;
         const audio = document.createElement('audio');
         audio.src = path + '/' +  audioSrc;
         audio.innerHTML = 'Your browser does not support the <code>audio</code> element.';
