@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Τσιντσιλά</title>
+    <!-- Google Font CDN -->
+    <!-- https://fonts.google.com/specimen/Open+Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -20,7 +25,7 @@
             float: right;
             margin-left: 8px;
         }
-        p {
+        p, li {
             font-size: 1.25rem;
         }
         span {
@@ -34,6 +39,12 @@
             max-width: 680px;
             margin-left: auto;
             margin-right: auto;
+        }
+        .A2 {
+            color: rgb(26, 188, 156);
+        }
+        .A2 {
+            font-size: 1.25rem;
         }
     </style>
     <!--
@@ -55,6 +66,14 @@
     import vttParser from './vttParser.js';
 
     const highlightIdPrefix = "highlight-";
+    const level = 'A2';
+    const vocabulary = [
+        {greek: "άνετα", english: "comfortable, comfortably"},
+        {greek: "γούνα", english: "fur"},
+        {greek: "ξύνουν", english: "scratch"},
+        {greek: "πηγούνι", english: "chin"},
+        {greek: "τσιντσιλά" , english: "chinchilla"}
+    ];
     fetch(`Τσιντσιλά.vtt`)
         .then(r => r.text())
         .then(vttParser)
@@ -67,6 +86,9 @@
             const root = document.getElementById('root');
             const heading = entries[0];
             const h1 = document.createElement('h1');
+            h1.style.display = 'flex';
+            h1.style.justifyContent = 'space-between';
+            h1.style.alignItems = 'center';
             let span = document.createElement('span');
             span.innerText = heading.text;
             span.id = highlightIdPrefix + heading.id;
@@ -74,6 +96,12 @@
                 audio.currentTime = heading.from / 1000;
             };
             h1.appendChild(span);
+
+            span = document.createElement('span');
+            span.innerText = level;
+            span.className = level;
+            h1.appendChild(span);
+
             root.appendChild(h1);
             const img = document.createElement('img');
             img.src = 'Τσιντσιλά.jpg';
@@ -95,6 +123,21 @@
             root.appendChild(paragraph);
 
             root.appendChild(audio);
+
+            const hr = document.createElement('hr');
+            root.appendChild(hr);
+
+            const vocabularyHeading = document.createElement('h1');
+            vocabularyHeading.innerText = 'Λεξιλόγιο';
+            root.appendChild(vocabularyHeading);
+            const ul = document.createElement('ul');
+            vocabulary.forEach(word => {
+                const li = document.createElement('li');
+                li.innerText = word.greek + ' - ' + word.english;
+                ul.appendChild(li);
+            });
+            root.appendChild(ul);
+
             return [entries, audio];
         })
         .then(([entries, audioElement]) => {
