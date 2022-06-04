@@ -1,6 +1,6 @@
 # greek-texts
 
-Collection of high-quality texts for learning Modern Greek.
+Collection of texts from [Tράπεζα κειμένων](https://www.greek-language.gr/certification/dbs/teachers/index.html) with synced audio for learning Modern Greek.
 
 ## Prerequisites
 
