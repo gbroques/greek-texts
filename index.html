@@ -18,33 +18,60 @@
             font-size: 16px;
             font-family: "Open Sans", Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
+        body {
+            margin: 0px;
+            padding: 8px 8px 0px 8px;
+        }
         img {
             width: 100%;
-            max-width: 250px;
             height: auto;
-            float: right;
-            margin-left: 8px;
         }
-        p, li {
-            font-size: 1.25rem;
+        @media only screen and (min-width: 680px)  {
+            img {
+                max-width: 250px;
+                float: right;
+                margin-left: 8px;
+            }
+            p, li {
+                font-size: 1.25rem;
+            }
+        }
+        audio {
+            width: 100%;
+            position: sticky;
+            bottom: 8px;
+        }
+        main {
+            height: 100%;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+        .highlight {
+            background-color: yellow;
         }
         span {
             /* https://www.cssportal.com/css-cubic-bezier-generator/ */
             transition: background 100ms ease-in;
         }
-        audio {
-            width: 100%;
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
         }
-        main {
-            max-width: 680px;
+        #loading-spinner {
+            border-radius: 50%;
+            border-top: 4px solid rgba(0, 0, 0, 0.67);
+            border-right: 4px solid rgba(0, 0, 0, 0.67);
+            border-bottom: 4px solid rgba(0, 0, 0, 0.67);
+            border-left: 4px solid transparent;
+            width: 50px;
+            height: 50px;
+            animation: spin 800ms ease-out infinite;
             margin-left: auto;
             margin-right: auto;
-        }
-        .A2 {
-            color: rgb(26, 188, 156);
-        }
-        .A2 {
-            font-size: 1.25rem;
+            margin-top: 33vh;
         }
     </style>
     <!--
@@ -60,109 +87,15 @@
     -->
 </head>
 <body>
-    <main id="root"></main>
+    <main id="root">
+        <div id="loading-spinner"></div>
+    </main>
 </body>
 <script type="module">
-    import vttParser from './vttParser.js';
-
-    const highlightIdPrefix = "highlight-";
-    const level = 'A2';
-    const vocabulary = [
-        {greek: "άνετα", english: "comfortable, comfortably"},
-        {greek: "γούνα", english: "fur"},
-        {greek: "ξύνουν", english: "scratch"},
-        {greek: "πηγούνι", english: "chin"},
-        {greek: "τσιντσιλά" , english: "chinchilla"}
-    ];
-    fetch(`Τσιντσιλά.vtt`)
-        .then(r => r.text())
-        .then(vttParser)
-        .then(r => r.entries)
-        .then(entries => {
-            const audio = document.createElement('audio');
-            audio.src = 'Τσιντσιλά.mp3';
-            audio.innerHTML = 'Your browser does not support the <code>audio</code> element.';
-            audio.controls = true;
-            const root = document.getElementById('root');
-            const heading = entries[0];
-            const h1 = document.createElement('h1');
-            h1.style.display = 'flex';
-            h1.style.justifyContent = 'space-between';
-            h1.style.alignItems = 'center';
-            let span = document.createElement('span');
-            span.innerText = heading.text;
-            span.id = highlightIdPrefix + heading.id;
-            span.onclick = () => {
-                audio.currentTime = heading.from / 1000;
-            };
-            h1.appendChild(span);
-
-            span = document.createElement('span');
-            span.innerText = level;
-            span.className = level;
-            h1.appendChild(span);
-
-            root.appendChild(h1);
-            const img = document.createElement('img');
-            img.src = 'Τσιντσιλά.jpg';
-            img.alt = 'Τσιντσιλά';
-            root.appendChild(img);
-            const paragraph = document.createElement('p')
-
-            const paragraphEntries = entries.slice(1);
-            paragraphEntries.forEach(entry => {
-                span = document.createElement('span');
-                span.innerText = entry.text;
-                span.id = highlightIdPrefix + entry.id;
-                span.onclick = () => {
-                    audio.currentTime = entry.from / 1000;
-                };
-                paragraph.appendChild(span);
-                paragraph.appendChild(document.createTextNode(' '));
-            });
-            root.appendChild(paragraph);
-
-            root.appendChild(audio);
-
-            const hr = document.createElement('hr');
-            root.appendChild(hr);
-
-            const vocabularyHeading = document.createElement('h1');
-            vocabularyHeading.innerText = 'Λεξιλόγιο';
-            root.appendChild(vocabularyHeading);
-            const ul = document.createElement('ul');
-            vocabulary.forEach(word => {
-                const li = document.createElement('li');
-                li.innerText = word.greek + ' - ' + word.english;
-                ul.appendChild(li);
-            });
-            root.appendChild(ul);
-
-            return [entries, audio];
-        })
-        .then(([entries, audioElement]) => {
-            let previouslyHighlightedElement = null;
-            const addHighlight = element => element.style.setProperty('background', 'yellow');
-            const removeHighlight = element => element.style.removeProperty('background');
-            audioElement.addEventListener('timeupdate', e => {
-                let didHighlightElement = false;
-                entries.forEach(element => {
-                    const currentTimeInMs = audioElement.currentTime * 1000;
-                    if (currentTimeInMs >= element.from && currentTimeInMs <= element.to) {
-                        const nextHighlightedElement = document.getElementById(highlightIdPrefix + element.id);
-                        if (previouslyHighlightedElement && previouslyHighlightedElement !== nextHighlightedElement) {
-                            removeHighlight(previouslyHighlightedElement);
-                        }
-                        addHighlight(nextHighlightedElement);
-                        previouslyHighlightedElement = nextHighlightedElement;
-                        didHighlightElement = true;
-                    }
-                });
-                if (!didHighlightElement && previouslyHighlightedElement) {
-                    removeHighlight(previouslyHighlightedElement);
-                }
-                didHighlightElement = false;
-            });
-       });
+    import loadText from './src/loadText.js';
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const hideLoadingSpinner = () => loadingSpinner.style.display = 'none';
+    const root = document.getElementById('root');
+    loadText('Τσιντσιλά', root).then(hideLoadingSpinner);
 </script>
 </html>

@@ -1,0 +1,65 @@
+{
+    "path": "Τσιντσιλά",
+    "vtt": "Τσιντσιλά.vtt",
+    "audio": "Τσιντσιλά.mp3",
+    "level": "A2",
+    "img": {
+      "src": "Τσιντσιλά.jpg",
+      "alt": "Τσιντσιλά"
+    },
+    "vocabulary": [
+      {
+        "greek": "άνετα",
+        "english": "comfortable, comfortably"
+      },
+      {
+        "greek": "γούνα",
+        "english": "fur"
+      },
+      {
+        "greek": "ξύνουν",
+        "english": "scratch"
+      },
+      {
+        "greek": "πηγούνι",
+        "english": "chin"
+      },
+      {
+        "greek": "τσιντσιλά",
+        "english": "chinchilla"
+      }
+    ],
+    "markup": [
+      {
+        "type": "h1",
+        "children": [
+          "1"
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21"
+        ]
+      }
+    ]
+}
