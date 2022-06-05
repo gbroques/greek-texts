@@ -1,0 +1,78 @@
+{
+  "vtt": "Ο γάτος.vtt",
+  "audio": "Ο γάτος.mp3",
+  "level": "A2",
+  "source": "https://www.greek-language.gr/certification/dbs/teachers/show.html?id=85",
+  "img": {
+    "src": "Ο γάτος.jpg",
+    "alt": "Ο γάτος",
+    "attribution": "https://commons.wikimedia.org/wiki/File:Super_flyffy_cat_(5364339790).jpg"
+  },
+  "vocabulary": [
+    {
+      "greek": "διώχνει",
+      "english": "chases out, gets rid of, drives"
+    },
+    {
+      "greek": "ζημιές",
+      "english": "losses, damages, harm"
+    },
+    {
+      "greek": "μαλώνουν",
+      "english": "scold, fight"
+    },
+    {
+      "greek": "νιαουρίζω",
+      "english": "meow"
+    },
+    {
+      "greek": "προσέχω",
+      "english": "I watch, pay attention to, observe"
+    },
+    {
+      "greek": "σκαρφαλώνει",
+      "english": "he climbs"
+    },
+    {
+      "greek": "συνέχεια",
+      "english": "continuation (noun), constantly (adverb)"
+    }
+  ],
+  "markup": [
+    {
+      "type": "p",
+      "children": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    {
+      "type": "p",
+      "children": [
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25"
+      ]
+    }
+  ]
+}

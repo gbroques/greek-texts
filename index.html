@@ -41,6 +41,16 @@
             position: sticky;
             bottom: 8px;
         }
+        header {
+            text-align: right;
+            max-width: 680px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        select {
+            font-size: 1.125rem;
+            padding: 2px 4px;
+        }
         main {
             height: 100%;
             max-width: 680px;
@@ -76,15 +86,28 @@
     </style>
 </head>
 <body>
+    <header>
+        <select id="text-select">
+            <option value="Τσιντσιλά" selected>Τσιντσιλά</option>
+            <option value="Ο γάτος">Ο γάτος</option>
+        </select>
+    </header>
     <main id="root">
         <div id="loading-spinner"></div>
     </main>
 </body>
 <script type="module">
-    import loadText from './src/loadText.js';
+    import createRoot from './src/createRoot.js';
     const loadingSpinner = document.getElementById('loading-spinner');
     const hideLoadingSpinner = () => loadingSpinner.style.display = 'none';
-    const root = document.getElementById('root');
-    loadText('Τσιντσιλά', root).then(hideLoadingSpinner);
+    const root = createRoot(document.getElementById('root'));
+
+    const textSelect = document.getElementById('text-select');
+    const defaultSelected = textSelect.options[textSelect.selectedIndex].value;
+    root.renderText(defaultSelected).then(hideLoadingSpinner);
+    textSelect.addEventListener('change', e => {
+        const text = e.target.value;
+        root.renderText(text);
+    });
 </script>
 </html>
