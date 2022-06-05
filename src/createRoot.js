@@ -1,5 +1,8 @@
 import vttParser from './vttParser.js';
 
+const fetchConfigWithCaching = withCaching(fetchConfig);
+const fetchCuesWithCaching = withCaching(fetchCues);
+
 export default function createRoot(root) {
     const audio = createAudio();
     const highlightIdPrefix = 'highlight-';
@@ -20,8 +23,9 @@ export default function createRoot(root) {
 
     return {
         renderText: (path) => {
-            const configPromise = fetchConfig(path);
-            const cuesPromise = fetchCues(configPromise, path);
+            const configPromise = fetchConfigWithCaching(path);
+            const cuesPromise = configPromise
+                .then(config => fetchCuesWithCaching(path + '/' + config.vtt));
             return Promise.all([configPromise, cuesPromise]).then(([config, cues]) => {
                 const {audio: audioSrc, img: image, markup, vocabulary} = config;
                 article.innerHTML = '';
@@ -81,14 +85,27 @@ export default function createRoot(root) {
     };
 }
 
+function withCaching(fn) {
+    const cache = {};
+    return (key) => {
+        if (cache[key]) {
+            return Promise.resolve(cache[key]);
+        } else {
+            return fn(key).then(result => {
+                cache[key] = result;
+                return result;
+            });
+        }
+    };
+}
+
 function fetchConfig(path) {
     return fetch(`${path}/config.json`)
         .then(r => r.json());
 }
 
-function fetchCues(configPromise, path) {
-    return configPromise
-        .then(config => fetch(path + '/' + config.vtt))
+function fetchCues(vttPath) {
+    return fetch(vttPath)
         .then(r => r.text())
         .then(vttParser)
         .then(r => r.entries);
