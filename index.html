@@ -97,6 +97,25 @@
         <div id="loading-spinner"></div>
     </main>
 </body>
+<script>
+    (() => {
+        const textSelect = document.getElementById('text-select');
+        let textFromHash = location.hash.substring(2);
+        try {
+            textFromHash = decodeURIComponent(textFromHash)
+        } catch (e) {
+            // do nothing.
+        }
+        const selectedIndex = Array.prototype.findIndex.call(
+            textSelect.options,
+            option => option.value === textFromHash);
+        if (selectedIndex === -1) {
+            location.hash = '';
+        } else {
+            textSelect.selectedIndex = selectedIndex;
+        }
+    })();
+</script>
 <script type="module">
     import createRoot from './src/createRoot.js';
     const loadingSpinner = document.getElementById('loading-spinner');
@@ -105,9 +124,12 @@
 
     const textSelect = document.getElementById('text-select');
     const defaultSelected = textSelect.options[textSelect.selectedIndex].value;
+    const setHash = text => location.hash = '/' + encodeURIComponent(text);
+    if (!location.hash.substring(2)) setHash(defaultSelected);
     root.renderText(defaultSelected).then(hideLoadingSpinner);
     textSelect.addEventListener('change', e => {
         const text = e.target.value;
+        setHash(text);
         root.renderText(text);
     });
 </script>
