@@ -6,14 +6,17 @@ const fetchCuesWithCaching = withCaching(fetchCues);
 export default function createRoot(root) {
     const audio = createAudio();
     const highlightIdPrefix = 'highlight-';
-    const article = document.createElement('article');
+    const article = document.createElement('section');
     const hr = document.createElement('hr');
+    const vocabularySection = document.createElement('section');
     const vocabularyHeading = document.createElement('h1');
     vocabularyHeading.innerText = 'Λεξιλόγιο';
+    vocabularySection.appendChild(vocabularyHeading);
     const ul = document.createElement('ul');
+    vocabularySection.appendChild(ul);
     let handleTimeupdate = null;
     const appendToRoot = () => {
-        const nodes = [article, hr, vocabularyHeading, ul, audio];
+        const nodes = [article, hr, vocabularySection, audio];
         nodes.forEach(child => {
             if (!root.contains(child)) {
                 root.appendChild(child);
