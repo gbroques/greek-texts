@@ -30,14 +30,9 @@ export default function createRoot(root) {
             const cuesPromise = configPromise
                 .then(config => fetchCuesWithCaching(path + '/' + config.vtt));
             return Promise.all([configPromise, cuesPromise]).then(([config, cues]) => {
-                const {title, titleCueId, audio: audioSrc, img: image, markup, vocabulary} = config;
+                const {audio: audioSrc, img: image, markup, vocabulary} = config;
                 article.innerHTML = '';
                 audio.src = path + '/' + audioSrc;
-                const img = document.createElement('img');
-                img.src = path + '/' + image.src;
-                img.alt = image.alt;
-                article.appendChild(img);
-
                 const cueById = groupCueById(cues);
                 function render(parent, children) {
                     children.forEach(child => {
@@ -51,6 +46,11 @@ export default function createRoot(root) {
                                 parent.appendChild(document.createTextNode(' '));
                             } else {
                                 const nextParent = document.createElement(child.type);
+                                if (child.props) {
+                                    Object.entries(child.props).forEach(([prop, value]) => {
+                                        nextParent[prop] = value;
+                                    });
+                                }
                                 render(nextParent, child.children);
                                 parent.appendChild(nextParent);
                             }
@@ -59,8 +59,8 @@ export default function createRoot(root) {
                     });
                 };
                 const titleNode = createTitleNode(config);
-                const markupWithTitle = [titleNode, ...markup];
-                render(article, markupWithTitle);
+                const imageNode = createImageNode(path + '/' + image.src, image.alt);
+                render(article, [titleNode, imageNode, ...markup]);
 
                 createVocabularlyList(vocabulary, ul);
 
@@ -96,24 +96,56 @@ export default function createRoot(root) {
 }
 
 function createTitleNode(config) {
+    const levelNode = {
+        type: 'span',
+        children: [
+            config.level
+        ],
+        props: {
+            className: config.level
+        }
+    };
     const type = 'h1';
+    const props = {
+        className: 'title',
+    };
     if (!config.titleCueId) {
         return {
             type,
+            props,
             children: [
-                config.title
+                {
+                    type: "span",
+                    children: [
+                        config.title
+                    ]
+                },
+                levelNode
             ]
         }
     } else {
         return {
             type,
+            props,
             children: [
                 {
-                    type: "cue",
+                    type: 'cue',
                     id: config.titleCueId
-                }
+                },
+                levelNode
             ]
         }
+    };
+}
+
+function createImageNode(src, alt) {
+    return {
+        type: 'img',
+        props: {
+            src,
+            alt
+        },
+        children: []
     };
 }
 

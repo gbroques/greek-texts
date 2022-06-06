@@ -25,14 +25,9 @@
         }
         img {
             width: 100%;
-            height: auto;
+            max-height: 420px; /* 680 / 1.61803398875 */
         }
         @media only screen and (min-width: 680px)  {
-            img {
-                max-width: 225px;
-                float: right;
-                margin-left: 8px;
-            }
             p, li {
                 font-size: 1.25rem;
             }
@@ -113,6 +108,13 @@
             height: 16px;
             margin-right: 8px;
             transition: fill 350ms ease-in-out;
+        }
+        .title {
+            display: flex;
+            justify-content: space-between;
+        }
+        .A2 {
+            color: rgb(26, 188, 156);
         }
     </style>
 </head>
