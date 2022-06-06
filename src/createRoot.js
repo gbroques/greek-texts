@@ -51,6 +51,11 @@ export default function createRoot(root) {
                                 parent.appendChild(document.createTextNode(' '));
                             } else {
                                 const nextParent = document.createElement(child.type);
+                                if (child.props) {
+                                    Object.entries(child.props).forEach(([prop, value]) => {
+                                        nextParent[prop] = value;
+                                    });
+                                }
                                 render(nextParent, child.children);
                                 parent.appendChild(nextParent);
                             }
@@ -97,11 +102,26 @@ export default function createRoot(root) {
 
 function createTitleNode(config) {
     const type = 'h1';
+    const levelNode = {
+        type: 'span',
+        children: [
+            config.level
+        ],
+        props: {
+            className: config.level
+        }
+    };
     if (!config.titleCueId) {
         return {
             type,
             children: [
-                config.title
+                {
+                    type: "span",
+                    children: [
+                        config.title
+                    ]
+                },
+                levelNode
             ]
         }
     } else {
@@ -111,7 +131,8 @@ function createTitleNode(config) {
                 {
                     type: "cue",
                     id: config.titleCueId
-                }
+                },
+                levelNode
             ]
         }
     };
