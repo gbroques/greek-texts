@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Τσιντσιλά</title>
+    <meta name="Description" CONTENT="Collection of texts from Tράπεζα κειμένων with synced audio for learning Modern Greek.">
+    <title>Greek Texts</title>
     <!-- Google Font CDN -->
     <!-- https://fonts.google.com/specimen/Open+Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -139,7 +140,7 @@
         const textSelect = document.getElementById('text-select');
         let textFromHash = location.hash.substring(2);
         try {
-            textFromHash = decodeURIComponent(textFromHash)
+            textFromHash = decodeURIComponent(textFromHash);
         } catch (e) {
             // do nothing.
         }
@@ -161,12 +162,22 @@
 
     const textSelect = document.getElementById('text-select');
     const defaultSelected = textSelect.options[textSelect.selectedIndex].value;
+    const initialTitle = document.title;
     const setHash = text => location.hash = '/' + encodeURIComponent(text);
-    if (!location.hash.substring(2)) setHash(defaultSelected);
+    const setTitle = text => document.title = text + ' - ' + initialTitle;
+    const setText = text => {
+        setHash(text);
+        setTitle(text);
+    };
+    if (!location.hash.substring(2)) {
+        setText(defaultSelected);
+    } else {
+        setTitle(defaultSelected);
+    }
     root.renderText(defaultSelected).then(hideLoadingSpinner);
     textSelect.addEventListener('change', e => {
         const text = e.target.value;
-        setHash(text);
+        setText(text);
         root.renderText(text);
     });
 </script>
