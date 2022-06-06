@@ -20,7 +20,7 @@ Audio is from various contributors from the [Learning Greek Discord server](http
 
 2. Navigate to the URL outputted by step #1 in your web browser of choice.
 
-## How to Make VTT from Audio
+## How to Make [WebVTT](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) from Audio
 
 1. Download the audio for a text from [here](https://drive.google.com/drive/folders/1gxJgzlEunNgol6r6nW2M5GJiXV_RhB4n).
 2. Download and install [Audacity](https://www.audacityteam.org/).

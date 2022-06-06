@@ -30,7 +30,7 @@ export default function createRoot(root) {
             const cuesPromise = configPromise
                 .then(config => fetchCuesWithCaching(path + '/' + config.vtt));
             return Promise.all([configPromise, cuesPromise]).then(([config, cues]) => {
-                const {audio: audioSrc, img: image, markup, vocabulary} = config;
+                const {title, titleCueId, audio: audioSrc, img: image, markup, vocabulary} = config;
                 article.innerHTML = '';
                 audio.src = path + '/' + audioSrc;
                 const img = document.createElement('img');
@@ -42,18 +42,25 @@ export default function createRoot(root) {
                 function render(parent, children) {
                     children.forEach(child => {
                         if (typeof child === 'string') {
-                            const cue = cueById[child];
-                            const span = createSpan(cue, highlightIdPrefix, audio);
-                            parent.appendChild(span);
-                            parent.appendChild(document.createTextNode(' '));
+                            parent.innerText += child;
                         } else {
-                            const nextParent = document.createElement(child.type);
-                            render(nextParent, child.children);
-                            parent.appendChild(nextParent);
+                            if (child.type === 'cue') {
+                                const cue = cueById[child.id];
+                                const span = createSpan(cue, highlightIdPrefix, audio);
+                                parent.appendChild(span);
+                                parent.appendChild(document.createTextNode(' '));
+                            } else {
+                                const nextParent = document.createElement(child.type);
+                                render(nextParent, child.children);
+                                parent.appendChild(nextParent);
+                            }
+
                         }
                     });
                 };
-                render(article, markup);
+                const titleNode = createTitleNode(config);
+                const markupWithTitle = [titleNode, ...markup];
+                render(article, markupWithTitle);
 
                 createVocabularlyList(vocabulary, ul);
 
@@ -84,6 +91,28 @@ export default function createRoot(root) {
                 };
                 audio.addEventListener('timeupdate', handleTimeupdate);
             }).then(appendToRoot);
+        }
+    };
+}
+
+function createTitleNode(config) {
+    const type = 'h1';
+    if (!config.titleCueId) {
+        return {
+            type,
+            children: [
+                config.title
+            ]
+        }
+    } else {
+        return {
+            type,
+            children: [
+                {
+                    type: "cue",
+                    id: config.titleCueId
+                }
+            ]
         }
     };
 }

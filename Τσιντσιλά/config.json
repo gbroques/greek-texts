@@ -1,66 +1,122 @@
 {
-    "vtt": "Τσιντσιλά.vtt",
-    "audio": "Τσιντσιλά.mp3",
-    "level": "A2",
-    "source": "https://www.greek-language.gr/certification/dbs/teachers/show.html?id=101",
-    "img": {
-      "src": "Τσιντσιλά.jpg",
-      "alt": "Τσιντσιλά",
-      "attribution": "https://commons.wikimedia.org/wiki/File:Chinchilla_lanigera_(Wroclaw_zoo)-2.JPG"
+  "title": "Τσιντσιλά",
+  "titleCueId": "1",
+  "vtt": "Τσιντσιλά.vtt",
+  "audio": "Τσιντσιλά.mp3",
+  "level": "A2",
+  "source": "https://www.greek-language.gr/certification/dbs/teachers/show.html?id=101",
+  "img": {
+    "src": "Τσιντσιλά.jpg",
+    "alt": "Τσιντσιλά",
+    "attribution": "https://commons.wikimedia.org/wiki/File:Chinchilla_lanigera_(Wroclaw_zoo)-2.JPG"
+  },
+  "vocabulary": [
+    {
+      "greek": "άνετα",
+      "english": "comfortable, comfortably"
     },
-    "vocabulary": [
-      {
-        "greek": "άνετα",
-        "english": "comfortable, comfortably"
-      },
-      {
-        "greek": "γούνα",
-        "english": "fur"
-      },
-      {
-        "greek": "ξύνουν",
-        "english": "scratch"
-      },
-      {
-        "greek": "πηγούνι",
-        "english": "chin"
-      },
-      {
-        "greek": "τσιντσιλά",
-        "english": "chinchilla"
-      }
-    ],
-    "markup": [
-      {
-        "type": "h1",
-        "children": [
-          "1"
-        ]
-      },
-      {
-        "type": "p",
-        "children": [
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8",
-          "9",
-          "10",
-          "11",
-          "12",
-          "13",
-          "14",
-          "15",
-          "16",
-          "17",
-          "18",
-          "19",
-          "20",
-          "21"
-        ]
-      }
-    ]
+    {
+      "greek": "γούνα",
+      "english": "fur"
+    },
+    {
+      "greek": "ξύνουν",
+      "english": "scratch"
+    },
+    {
+      "greek": "πηγούνι",
+      "english": "chin"
+    },
+    {
+      "greek": "τσιντσιλά",
+      "english": "chinchilla"
+    }
+  ],
+  "markup": [
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "cue",
+          "id": "2"
+        },
+        {
+          "type": "cue",
+          "id": "3"
+        },
+        {
+          "type": "cue",
+          "id": "4"
+        },
+        {
+          "type": "cue",
+          "id": "5"
+        },
+        {
+          "type": "cue",
+          "id": "6"
+        },
+        {
+          "type": "cue",
+          "id": "7"
+        },
+        {
+          "type": "cue",
+          "id": "8"
+        },
+        {
+          "type": "cue",
+          "id": "9"
+        },
+        {
+          "type": "cue",
+          "id": "10"
+        },
+        {
+          "type": "cue",
+          "id": "11"
+        },
+        {
+          "type": "cue",
+          "id": "12"
+        },
+        {
+          "type": "cue",
+          "id": "13"
+        },
+        {
+          "type": "cue",
+          "id": "14"
+        },
+        {
+          "type": "cue",
+          "id": "15"
+        },
+        {
+          "type": "cue",
+          "id": "16"
+        },
+        {
+          "type": "cue",
+          "id": "17"
+        },
+        {
+          "type": "cue",
+          "id": "18"
+        },
+        {
+          "type": "cue",
+          "id": "19"
+        },
+        {
+          "type": "cue",
+          "id": "20"
+        },
+        {
+          "type": "cue",
+          "id": "21"
+        }
+      ]
+    }
+  ]
 }
