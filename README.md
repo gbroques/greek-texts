@@ -27,8 +27,8 @@ Audio is from various contributors from the [Learning Greek Discord server](http
 3. Open audio file in Audacity, and select [Label Sounds](https://manual.audacityteam.org/man/label_sounds.html) from the menu bar (Analyze -> Label Sounds...).
 4. Experiment with settings to achieve a good result.
    * Set "Minimum silence duration" to 100 ms.
-   * Experiment with Maximum and Minimum leading silence. 
-5. When happy with the result, export the labels as text (File > Export > Export Labels....).
-6. Convert the exported labels to SRT [here](http://magcius.github.io/audaciter/).
-7. Convert SRT to VTT [here](https://www.happyscribe.com/subtitle-tools/convert-srt-to-vtt).
-8. Manually edit the VTT file to replace labels with text. This can be performed in an earlier step, such as before exporting the labels from Audacity if you want.
+   * Experiment with Maximum and Minimum leading silence.
+5. Update labels with corresponding text. Adjust labels if desired or needed.
+6. When happy with the result, export the labels as text (File > Export > Export Labels....).
+7. Convert the exported labels to SRT [here](http://magcius.github.io/audaciter/).
+8. Convert SRT to VTT [here](https://www.happyscribe.com/subtitle-tools/convert-srt-to-vtt).
