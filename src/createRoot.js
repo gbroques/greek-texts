@@ -39,11 +39,21 @@ export default function createRoot(root) {
                         if (typeof child === 'string') {
                             parent.innerText += child;
                         } else {
-                            if (child.type === 'cue') {
-                                const cue = cueById[child.id];
+                            const createCue = id => {
+                                const cue = cueById[id];
                                 const span = createSpan(cue, highlightIdPrefix, audio);
                                 parent.appendChild(span);
                                 parent.appendChild(document.createTextNode(' '));
+                            };
+                            if (child.type === 'cue') {
+                                createCue(child.id);
+                            } else if (child.type === 'cueRange') {
+                                const {start, end} = child;
+                                let i = parseInt(start);
+                                while (i <= end) {
+                                    createCue(i);
+                                    i++;
+                                }
                             } else {
                                 const nextParent = document.createElement(child.type);
                                 if (child.props) {
