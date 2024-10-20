@@ -55,16 +55,9 @@
       "type": "p",
       "children": [
         {
-          "type": "cue",
-          "id": "2"
-        },
-        {
-          "type": "cue",
-          "id": "3"
-        },
-        {
-          "type": "cue",
-          "id": "4"
+          "type": "cueRange",
+          "start": "2",
+          "end": "4"
         }
       ]
     },

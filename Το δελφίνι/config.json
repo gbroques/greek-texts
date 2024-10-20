@@ -50,36 +50,9 @@
       "type": "p",
       "children": [
         {
-          "type": "cue",
-          "id": "2"
-        },
-        {
-          "type": "cue",
-          "id": "3"
-        },
-        {
-          "type": "cue",
-          "id": "4"
-        },
-        {
-          "type": "cue",
-          "id": "5"
-        },
-        {
-          "type": "cue",
-          "id": "6"
-        },
-        {
-          "type": "cue",
-          "id": "7"
-        },
-        {
-          "type": "cue",
-          "id": "8"
-        },
-        {
-          "type": "cue",
-          "id": "9"
+          "type": "cueRange",
+          "start": "2",
+          "end": "9"
         }
       ]
     },
@@ -87,44 +60,9 @@
     "type": "p",
     "children": [
         {
-          "type": "cue",
-          "id": "10"
-        },
-        {
-          "type": "cue",
-          "id": "11"
-        },
-        {
-          "type": "cue",
-          "id": "12"
-        },
-        {
-          "type": "cue",
-          "id": "13"
-        },
-        {
-          "type": "cue",
-          "id": "14"
-        },
-        {
-          "type": "cue",
-          "id": "15"
-        },
-        {
-          "type": "cue",
-          "id": "16"
-        },
-        {
-          "type": "cue",
-          "id": "17"
-        },
-        {
-          "type": "cue",
-          "id": "18"
-        },
-        {
-          "type": "cue",
-          "id": "19"
+          "type": "cueRange",
+          "start": "10",
+          "end": "19"
         }
       ]
     },
@@ -132,48 +70,9 @@
       "type": "p",
       "children": [
         {
-          "type": "cue",
-          "id": "20"
-        },
-        {
-          "type": "cue",
-          "id": "21"
-        },
-        {
-          "type": "cue",
-          "id": "22"
-        },
-        {
-          "type": "cue",
-          "id": "23"
-        },
-        {
-          "type": "cue",
-          "id": "24"
-        },
-        {
-          "type": "cue",
-          "id": "25"
-        },
-        {
-          "type": "cue",
-          "id": "26"
-        },
-        {
-          "type": "cue",
-          "id": "27"
-        },
-        {
-          "type": "cue",
-          "id": "28"
-        },
-        {
-          "type": "cue",
-          "id": "29"
-        },
-        {
-          "type": "cue",
-          "id": "30"
+          "type": "cueRange",
+          "start": "20",
+          "end": "30"
         }
       ]
     }
