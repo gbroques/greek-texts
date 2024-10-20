@@ -1,0 +1,143 @@
+{
+  "title": "Πώς να γίνεις καλός στη δουλειά σου",
+  "titleCueId": null,
+  "vtt": "Πώς να γίνεις καλός στη δουλειά σου.vtt",
+  "audio": "Πώς να γίνεις καλός στη δουλειά σου.mp3",
+  "speaker": "Poursa",
+  "level": "A2",
+  "source": "https://www.greek-language.gr/certification/dbs/teachers/show.html?id=99",
+  "img": {
+    "src": "Πώς να γίνεις καλός στη δουλειά σου.jpg",
+    "alt": "Πώς να γίνεις καλός στη δουλειά σου",
+    "attribution": "https://pxhere.com/en/photo/1616939"
+  },
+  "vocabulary": [
+    {
+      "greek": "αρνητικά",
+      "english": "negative"
+    },
+    {
+      "greek": "ευχαριστημένοι",
+      "english": "happy, pleasant"
+    },
+    {
+      "greek": "ευχάριστο",
+      "english": "pleasant"
+    },
+    {
+      "greek": "λιπαρές",
+      "english": "fatty"
+    },
+    {
+      "greek": "ξενυχτάς",
+      "english": "be up, cram, pull an all nighter"
+    },
+    {
+      "greek": "όσο",
+      "english": "as much as, as long as, while"
+    },
+    {
+      "greek": "πληρώνεσαι",
+      "english": "you get paid"
+    }
+  ],
+  "markup": [
+    {
+      "type": "h2",
+      "children": [
+        {
+          "type": "cue",
+          "id": "1"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "cue",
+          "id": "2"
+        },
+        {
+          "type": "cue",
+          "id": "3"
+        },
+        {
+          "type": "cue",
+          "id": "4"
+        }
+      ]
+    },
+    {
+      "type": "h3",
+      "children": [
+        {
+          "type": "cue",
+          "id": "5"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "cueRange",
+          "start": "6",
+          "end": "16"
+        }
+      ]
+    },
+    {
+      "type": "h3",
+      "children": [
+        {
+          "type": "cue",
+          "id": "17"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "cueRange",
+          "start": "18",
+          "end": "25"
+        }
+      ]
+    },
+    {
+      "type": "h3",
+      "children": [
+        {
+          "type": "cue",
+          "id": "26"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "cueRange",
+          "start": "27",
+          "end": "39"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "strong",
+          "children": [
+            {
+              "type": "cue",
+              "id": "40"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
