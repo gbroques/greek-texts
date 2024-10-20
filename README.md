@@ -20,6 +20,14 @@ Audio is from various contributors from the [Learning Greek Discord server](http
 
 2. Navigate to the URL outputted by step #1 in your web browser of choice.
 
+## How to Add an Image
+
+To add an image for a text, follow the below steps:
+
+1. Search for an image with a creative commons license. For example, using [Google image search](https://www.google.com/search?q=dolphin&udm=2&tbs=sur:cl).
+2. Copy the link of the image and include it in `img.attribution` within `config.json`.
+3. Compress the image using a free online service such as [TinyJPG](https://tinyjpg.com/).
+
 ## How to Make [WebVTT](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) from Audio
 
 1. Download the audio for a text from the [Τράπεζα κειμένων Google Drive folder](https://drive.google.com/drive/folders/1gxJgzlEunNgol6r6nW2M5GJiXV_RhB4n).
