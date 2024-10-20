@@ -20,6 +20,12 @@ Audio is from various contributors from the [Learning Greek Discord server](http
 
 2. Navigate to the URL outputted by step #1 in your web browser of choice.
 
+## How to Add a New Text
+
+Run [./add-new-text.js](./add-new-text.js) and answer the prompts.
+
+This will create a directory for the new text in the root of this repository with a beginning `config.json` file.
+
 ## How to Add an Image
 
 To add an image for a text, follow the below steps:
