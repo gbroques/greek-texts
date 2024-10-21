@@ -94,7 +94,6 @@
             text-decoration: none;
             display: flex;
             align-items: center;
-            transition: color 350ms ease-in-out;
             font-size: 1.25rem;
         }
         .github-link, .github-link:active, .github-link:visited {
@@ -113,12 +112,22 @@
             margin-right: 8px;
             transition: fill 350ms ease-in-out;
         }
-        .title {
+        .space-between {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
         .A2 {
             color: rgb(26, 188, 156);
+        }
+        a {
+            transition: color 350ms ease-in-out;
+        }
+        a, a:visited {
+            color: #1E88E5; /* Blue 600 https://materialui.co/colors/ */
+        }
+        a:hover {
+            color: #1976D2; /* Blue 700 https://materialui.co/colors/ */
         }
     </style>
 </head>

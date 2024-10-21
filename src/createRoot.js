@@ -7,7 +7,7 @@ export default function createRoot(root) {
     const audio = createAudio();
     const highlightIdPrefix = 'highlight-';
     const article = document.createElement('section');
-    const hr = document.createElement('hr');
+    const hr1 = document.createElement('hr');
     const vocabularySection = document.createElement('section');
     const vocabularyHeading = document.createElement('h1');
     vocabularyHeading.innerText = 'Λεξιλόγιο';
@@ -15,8 +15,13 @@ export default function createRoot(root) {
     const ul = document.createElement('ul');
     vocabularySection.appendChild(ul);
     let handleTimeupdate = null;
+    const hr2 = document.createElement('hr');
+    const attributionSection = document.createElement('section');
+    const attributionParagraph = document.createElement('p');
+    attributionParagraph.className = 'space-between';
+    attributionSection.appendChild(attributionParagraph);
     const appendToRoot = () => {
-        const nodes = [article, hr, vocabularySection, audio];
+        const nodes = [article, hr1, vocabularySection, hr2, attributionSection, audio];
         nodes.forEach(child => {
             if (!root.contains(child)) {
                 root.appendChild(child);
@@ -30,7 +35,7 @@ export default function createRoot(root) {
             const cuesPromise = configPromise
                 .then(config => fetchCuesWithCaching(path + '/' + config.vtt));
             return Promise.all([configPromise, cuesPromise]).then(([config, cues]) => {
-                const {audio: audioSrc, img: image, markup, vocabulary} = config;
+                const {audio: audioSrc, img: image, markup, vocabulary, speaker, source} = config;
                 article.innerHTML = '';
                 audio.src = path + '/' + audioSrc;
                 const cueById = groupCueById(cues);
@@ -73,6 +78,18 @@ export default function createRoot(root) {
                 render(article, [titleNode, imageNode, ...markup]);
 
                 createVocabularlyList(vocabulary, ul);
+
+                const speakerSpan = document.createElement('span');
+                speakerSpan.innerText = `Narrated by ${speaker}`;
+                const sourceLink = document.createElement('a');
+                sourceLink.href = source;
+                sourceLink.target = '_blank';
+                sourceLink.innerText = 'View on Τράπεζα Κειμένων';
+                const attributionNodes = [speakerSpan, sourceLink];
+                attributionParagraph.innerHTML = '';
+                attributionNodes.forEach(node => {
+                    attributionParagraph.appendChild(node);
+                });
 
                 let previouslyHighlightedElement = null;
                 const addHighlight = element => element.classList.add('highlight');
@@ -117,7 +134,7 @@ function createTitleNode(config) {
     };
     const type = 'h1';
     const props = {
-        className: 'title',
+        className: 'space-between',
     };
     if (!config.titleCueId) {
         return {
