@@ -31,8 +31,12 @@
             max-height: 420px; /* 680 / 1.61803398875 */
         }
         @media only screen and (min-width: 680px)  {
-            p, li {
+            p, li, .github-link {
                 font-size: 1.25rem;
+            }
+            .github-icon {
+                width: 1.25rem;
+                height: 1.25rem;
             }
         }
         audio {
@@ -94,7 +98,6 @@
             text-decoration: none;
             display: flex;
             align-items: center;
-            font-size: 1.25rem;
         }
         .github-link, .github-link:active, .github-link:visited {
             color: #616161; /* Grey 700 https://materialui.co/colors/ */
@@ -107,8 +110,8 @@
         }
         .github-icon {
             fill: #616161; /* Grey 700 https://materialui.co/colors/ */
-            width: 1.25rem;
-            height: 1.25rem;
+            width: 1rem;
+            height: 1rem;
             margin-right: 8px;
             transition: fill 350ms ease-in-out;
         }
