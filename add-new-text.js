@@ -20,6 +20,8 @@ while (!title) {
   title = await rl.question('Title (required): ');
 }
 const source = await rl.question('Τράπεζα κειμένων URL (optional): ')
+const imgExtension = await rl.question('Image Extension (optional): ')
+const imgAttribution = await rl.question('Image URL (optional): ')
 const level = await rl.question('Level (optional): ');
 const speaker = await rl.question('Speaker (optional): ');
 
@@ -40,9 +42,9 @@ const config = JSON.stringify({
   "level": level,
   "source": source,
   "img": {
-    "ext": "jpg",
+    "ext": imgExtension,
     "alt": title,
-    "attribution": ""
+    "attribution": imgAttribution
   },
   "vocabulary": [...Array(numberOfVocabularyWords)].map(() => (
       {

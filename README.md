@@ -24,9 +24,9 @@ Audio is from various contributors from the [Learning Greek Discord server](http
 
 1. Decide on a text to add from the [Τράπεζα κειμένων Google Drive folder].
 2. Find the text on [Tράπεζα κειμένων] (the URL may be used in step #3).
-3. Run [`./add-new-text.js`](./add-new-text.js) and answer the prompts.
+3. Find a suitable image for the text by following instructions under [How to Add an Image](#how-to-add-an-image).
+4. Run [`./add-new-text.js`](./add-new-text.js) and answer the prompts.
    This will create a directory for the new text in the root of this repository with a beginning `config.json` file.
-4. Find a suitable image for the text by following instructions under [How to Add an Image](#how-to-add-an-image).
 5. Create a `transcript.vtt` file by following instructions under [How to Make WebVTT From Audio](#how-to-make-webvtt-from-audio).
 
 
@@ -34,12 +34,10 @@ Audio is from various contributors from the [Learning Greek Discord server](http
 
 To add an image for a text:
 
-1. Search for an image with a creative commons license. For example, using [Google image search](https://www.google.com/search?q=dolphin&udm=2&tbs=sur:cl).
-2. Include the extension of the image in `img.ext` within `config.json`.
-3. Copy the link of the image and include it in `img.attribution` within `config.json`.
-4. If the image is large, then consider shrinking it using a free online service such as [Image Resizer](https://imageresizer.com/).
-5. Compress the image using a free online service such as [TinyJPG](https://tinyjpg.com/).
-6. Save the image in the directory for the text with the name "image" and whatever extension is appropriate.
+1. Search for an image with a creative commons license. For example, using [Google image search](https://www.google.com/search?q=dolphin&udm=2&tbs=sur:cl). The orientation should be landscape instead of portrait (wider than tall).
+2. To reduce file size:
+   1. If the image is large (> 1000px), then shrink and / or crop it using a free online service such as [Image Resizer](https://imageresizer.com/).
+   2. Compress the image using a free online service such as [TinyJPG](https://tinyjpg.com/).
 
 ### How to Make [WebVTT](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) from Audio
 
