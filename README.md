@@ -23,10 +23,10 @@ Audio is from various contributors from the [Learning Greek Discord server](http
 ## How to Add a New Text
 
 1. Decide on a text to add from the [Τράπεζα κειμένων Google Drive folder].
-2. Run [`./add-new-text.js`](./add-new-text.js) and answer the prompts.
+2. Find the text on [Tράπεζα κειμένων].
+3. Run [`./add-new-text.js`](./add-new-text.js) and answer the prompts.
    This will create a directory for the new text in the root of this repository with a beginning `config.json` file.
-3. Find a suitable image for the text by following instructions under [How to Add an Image](#how-to-add-an-image).
-4. Search for the text on [Tράπεζα κειμένων], copy the URL, and include it as `source` in `config.json`.
+4. Find a suitable image for the text by following instructions under [How to Add an Image](#how-to-add-an-image).
 5. Create a `transcript.vtt` file by following instructions under [How to Make WebVTT From Audio](#how-to-make-webvtt-from-audio).
 
 
