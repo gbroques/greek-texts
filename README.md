@@ -23,7 +23,7 @@ Audio is from various contributors from the [Learning Greek Discord server](http
 ## How to Add a New Text
 
 1. Decide on a text to add from the [Τράπεζα κειμένων Google Drive folder].
-2. Find the text on [Tράπεζα κειμένων].
+2. Find the text on [Tράπεζα κειμένων] (the URL may be used in step #3).
 3. Run [`./add-new-text.js`](./add-new-text.js) and answer the prompts.
    This will create a directory for the new text in the root of this repository with a beginning `config.json` file.
 4. Find a suitable image for the text by following instructions under [How to Add an Image](#how-to-add-an-image).
