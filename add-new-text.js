@@ -55,8 +55,9 @@ const config = JSON.stringify({
       "type": "p",
       "children": [
         {
-            "type": "cue",
-            "id": ""
+            "type": "cueRange",
+            "start": "",
+            "end": ""
         }
       ]
     }
