@@ -1,0 +1,185 @@
+{
+  "title": "Καφές με …παντοτινή γεύση",
+  "titleCueId": "1",
+  "speaker": "Poursa",
+  "level": "B1",
+  "source": "https://www.greek-language.gr/certification/dbs/teachers/show.html?id=39",
+  "img": {
+    "ext": "jpg",
+    "alt": "Καφές με …παντοτινή γεύση",
+    "attribution": "https://boricafebar.com/wp-content/uploads/2024/07/americano-1.jpg"
+  },
+  "vocabulary": [],
+  "markup": [
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "cueRange",
+          "start": "2",
+          "end": "3"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "cue",
+          "id": "4"
+        }
+      ]
+    },
+    {
+      "type": "ul",
+      "children": [
+        {
+          "type": "li",
+          "children": [
+            {
+              "type": "cue",
+              "id": "5"
+            }
+          ]
+        },
+        {
+          "type": "li",
+          "children": [
+            {
+              "type": "cue",
+              "id": "6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "h2",
+      "children": [
+        {
+          "type": "cue",
+          "id": "7"
+        }
+      ]
+    },
+    {
+      "type": "h3",
+      "children": [
+        {
+          "type": "cue",
+          "id": "8"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "cueRange",
+          "start": "9",
+          "end": "13"
+        }
+      ]
+    },
+    {
+      "type": "h3",
+      "children": [
+        {
+          "type": "cue",
+          "id": "14"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "cueRange",
+          "start": "15",
+          "end": "19"
+        }
+      ]
+    },
+    {
+      "type": "h3",
+      "children": [
+        {
+          "type": "cue",
+          "id": "20"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "cueRange",
+          "start": "21",
+          "end": "23"
+        }
+      ]
+    },
+    {
+      "type": "h3",
+      "children": [
+        {
+          "type": "cue",
+          "id": "24"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "cueRange",
+          "start": "25",
+          "end": "32"
+        }
+      ]
+    },
+    {
+      "type": "h2",
+      "children": [
+        {
+          "type": "cue",
+          "id": "33"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "children": [
+        {
+          "type": "cue",
+          "id": "34"
+        }
+      ]
+    },
+    {
+      "type": "ul",
+      "children": [
+        {
+          "type": "li",
+          "children": [
+            {
+              "type": "cueRange",
+              "start": "35",
+              "end": "36"
+            }
+          ]
+        },
+        {
+          "type": "li",
+          "children": [
+            {
+              "type": "cueRange",
+              "start": "37",
+              "end": "41"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
