@@ -6,6 +6,7 @@
  * - Convert TypeScript to JavaScript
  * - Inline isBlank and isEntryFromPartial functions
  * - Export vttParser function as default instead of named export
+ * - Ignore cues without text instead of throwing an error.
  */
 
 const isEntryFromPartial = (e) => {
@@ -114,6 +115,9 @@ const VttMachine = () => ({
         if (tokens.length <= pos) {
             return { next: TRANSITION_NAMES.FINISH, params };
         }
+        if (isBlank(tokens[pos])) {
+            return { next: TRANSITION_NAMES.FIN_ENTRY, params };
+        }
         current.text = tokens[pos];
         return { next: TRANSITION_NAMES.MULTI_LINE_TEXT, params: Object.assign(Object.assign({}, params), { current, pos: pos + 1 }) };
     },
@@ -132,9 +136,6 @@ const VttMachine = () => ({
         const { pos, current, result } = params;
         if (isEntryFromPartial(current)) {
             result.push(current);
-        }
-        else {
-            throw new Error(`Parsing error current not complete ${JSON.stringify(current)}`);
         }
         return { next: TRANSITION_NAMES.ID_OR_NOTE_OR_STYLE, params: Object.assign(Object.assign({}, params), { current: {}, pos: pos + 1 }) };
     },

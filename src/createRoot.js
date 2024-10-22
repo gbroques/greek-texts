@@ -48,9 +48,11 @@ export default function createRoot(root) {
                         } else {
                             const createCue = id => {
                                 const cue = cueById[id];
-                                const span = createSpan(cue, highlightIdPrefix, audio);
-                                parent.appendChild(span);
-                                parent.appendChild(document.createTextNode(' '));
+                                if (cue) {
+                                    const span = createSpan(cue, highlightIdPrefix, audio);
+                                    parent.appendChild(span);
+                                    parent.appendChild(document.createTextNode(' '));
+                                }
                             };
                             if (child.type === 'cue') {
                                 createCue(child.id);
