@@ -12,7 +12,7 @@ import { readFileSync } from 'node:fs';
 import process from 'node:process';
 
 if (process.argv.length < 3) {
-    console.log(`Usage: ./audacity-labels-to-vtt.js <filename>`)
+    console.log(`Usage: ./audacity-labels-to-vtt.js <path/to/audacity/labels.txt>`)
     process.exit(1);
 }
 
