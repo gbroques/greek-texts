@@ -1,4 +1,13 @@
 #!/usr/bin/env node
+/**
+ * Script for converting Audacity labels to WebVTT.
+ *
+ * This reads audacity labels from a .txt file passed as an argument to the script,
+ * and outputs the WebVTT to standard out.
+ *
+ * Usage:
+ * ./audacity-labels-to-vtt.js path/to/audacity/labels/file.txt > path/to/file.vtt
+ */
 import { readFileSync } from 'node:fs';
 import process from 'node:process';
 

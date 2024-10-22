@@ -1,4 +1,13 @@
 #!/usr/bin/env node
+/**
+ * Convenience script for adding a new text.
+ *
+ * This creates a directory in the root of the repository
+ * matching the title of the text and, a minimal config.json
+ * file in that directory based on the optional prompts.
+ *
+ * Requires Node.js to be installed.
+ */
 import { mkdir, writeFile } from 'node:fs'
 import path from 'node:path';
 import * as readline from 'node:readline/promises';
