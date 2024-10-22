@@ -37,7 +37,9 @@ To add an image for a text:
 1. Search for an image with a creative commons license. For example, using [Google image search](https://www.google.com/search?q=dolphin&udm=2&tbs=sur:cl).
 3. Include the extension of the image in `img.ext` within `config.json`.
 2. Copy the link of the image and include it in `img.attribution` within `config.json`.
-3. Compress the image using a free online service such as [TinyJPG](https://tinyjpg.com/), and save it in the directory for the text with the name "image" and whatever extension is appropriate.
+3. If the image is large, then consider shrinking it using a free online service such as [Image Resizer](https://imageresizer.com/).
+4. Compress the image using a free online service such as [TinyJPG](https://tinyjpg.com/).
+5. Save the image in the directory for the text with the name "image" and whatever extension is appropriate.
 
 ### How to Make [WebVTT](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API) from Audio
 
