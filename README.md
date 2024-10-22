@@ -46,8 +46,8 @@ To add an image for a text, follow the below steps:
 6. When happy with the result, export the labels as text (File > Export > Export Labels....).
 7. Convert the exported labels to VTT by running:
 
-       ./audacity-labels-to-vtt.js path/to/audacity/labels/txt/file > ./path/to/vtt/file
+       ./audacity-labels-to-vtt.js path/to/audacity/labels.txt > ./path/to/transcript.vtt
 
    For example:
 
-       ./audacity-labels.to-vtt ./Τσιντιλά.txt > ./Τσιντιλά/Τσιντιλά.vtt
+       ./audacity-labels.to-vtt ./Τσιντιλά-audacity-labels.txt > ./Τσιντιλά/transcript.vtt

@@ -1,13 +1,11 @@
 {
   "title": "Ο γάτος",
   "titleCueId": null,
-  "vtt": "Ο γάτος.vtt",
-  "audio": "Ο γάτος.mp3",
   "speaker": "Sivas",
   "level": "A2",
   "source": "https://www.greek-language.gr/certification/dbs/teachers/show.html?id=85",
   "img": {
-    "src": "Ο γάτος.jpg",
+    "ext": "jpg",
     "alt": "Ο γάτος",
     "attribution": "https://commons.wikimedia.org/wiki/File:Super_flyffy_cat_(5364339790).jpg"
   },

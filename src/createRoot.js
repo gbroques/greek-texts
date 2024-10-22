@@ -32,15 +32,14 @@ export default function createRoot(root) {
     return {
         renderText: (path) => {
             const configPromise = fetchConfigWithCaching(path);
-            const cuesPromise = configPromise
-                .then(config => fetchCuesWithCaching(path + '/' + config.vtt));
+            const cuesPromise = fetchCuesWithCaching(path + '/transcript.vtt');
             return Promise.all([configPromise, cuesPromise]).then(([config, cues]) => {
-                const {audio: audioSrc, speaker, source} = config;
+                const {speaker, source} = config;
                 const vocabulary = config.vocabulary ?? [];
                 const image = config.img ?? {};
                 const markup = config.markup ?? [];
                 article.innerHTML = '';
-                audio.src = path + '/' + audioSrc;
+                audio.src = path + '/audio.mp3';
                 const cueById = groupCueById(cues);
                 function render(parent, children) {
                     children.forEach(child => {
@@ -77,7 +76,7 @@ export default function createRoot(root) {
                     });
                 };
                 const titleNode = createTitleNode(config);
-                const imageNode = createImageNode(path + '/' + image.src, image.alt);
+                const imageNode = createImageNode(path + '/image.' + image.ext, image.alt);
                 render(article, [titleNode, imageNode, ...markup]);
 
                 createVocabularlyList(vocabulary, ul);

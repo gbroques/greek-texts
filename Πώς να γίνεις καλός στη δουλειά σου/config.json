@@ -1,13 +1,11 @@
 {
   "title": "Πώς να γίνεις καλός στη δουλειά σου",
   "titleCueId": null,
-  "vtt": "Πώς να γίνεις καλός στη δουλειά σου.vtt",
-  "audio": "Πώς να γίνεις καλός στη δουλειά σου.mp3",
   "speaker": "Poursa",
   "level": "A2",
   "source": "https://www.greek-language.gr/certification/dbs/teachers/show.html?id=99",
   "img": {
-    "src": "Πώς να γίνεις καλός στη δουλειά σου.jpg",
+    "ext": "jpg",
     "alt": "Πώς να γίνεις καλός στη δουλειά σου",
     "attribution": "https://pxhere.com/en/photo/1616939"
   },

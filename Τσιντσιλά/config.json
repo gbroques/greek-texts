@@ -1,13 +1,11 @@
 {
   "title": "Τσιντσιλά",
   "titleCueId": "1",
-  "vtt": "Τσιντσιλά.vtt",
-  "audio": "Τσιντσιλά.mp3",
   "speaker": "Poursa",
   "level": "A2",
   "source": "https://www.greek-language.gr/certification/dbs/teachers/show.html?id=101",
   "img": {
-    "src": "Τσιντσιλά.jpg",
+    "ext": "jpg",
     "alt": "Τσιντσιλά",
     "attribution": "https://commons.wikimedia.org/wiki/File:Chinchilla_lanigera_(Wroclaw_zoo)-2.JPG"
   },
