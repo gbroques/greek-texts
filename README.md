@@ -29,7 +29,6 @@ Audio is from various contributors from the [Learning Greek Discord server](http
    This will create a directory for the new text in the root of this repository with a beginning `config.json` file.
 5. Create a `transcript.vtt` file by following instructions under [How to Make WebVTT From Audio](#how-to-make-webvtt-from-audio).
 
-
 ### How to Add an Image
 
 To add an image for a text:
