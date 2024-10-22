@@ -68,6 +68,7 @@ const config = JSON.stringify({
 writeFile(path.join(title, 'config.json'), config, 'utf8', handleError); 
 
 console.log(`\nCreated ${title}/ directory with config.json\n`);
-console.log('Next steps are to add an image, the mp3, and vtt files.\n')
+console.log('Next steps are to add an image, the mp3, and vtt files to this directory.\n')
+console.log('Lastly, add the text to the select element in index.html.\n')
 
 rl.close();
