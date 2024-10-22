@@ -12,8 +12,6 @@ export default function createRoot(root) {
     const vocabularyHeading = document.createElement('h1');
     vocabularyHeading.innerText = 'Λεξιλόγιο';
     vocabularySection.appendChild(vocabularyHeading);
-    const ul = document.createElement('ul');
-    vocabularySection.appendChild(ul);
     let handleTimeupdate = null;
     const hr2 = document.createElement('hr');
     const attributionSection = document.createElement('section');
@@ -81,7 +79,7 @@ export default function createRoot(root) {
                 const imageNode = createImageNode(path + '/image.' + image.ext, image.alt);
                 render(article, [titleNode, imageNode, ...markup]);
 
-                createVocabularlyList(vocabulary, ul);
+                createVocabularlyList(vocabulary, vocabularySection);
 
                 const speakerSpan = document.createElement('span');
                 speakerSpan.innerText = `Narrated by ${speaker}`;
@@ -217,13 +215,23 @@ function createAudio() {
     return audio;
 }
 
-function createVocabularlyList(vocabulary, ul) {
-    ul.innerHTML = '';
-    vocabulary.forEach(word => {
-        const li = document.createElement('li');
-        li.innerText = word.greek + ' - ' + word.english;
-        ul.appendChild(li);
-    });
+function createVocabularlyList(vocabulary, vocabularySection) {
+    if (vocabularySection.children.length > 1) {
+        vocabularySection.removeChild(vocabularySection.lastChild);
+    }
+    if (vocabulary.length) {
+        const ul = document.createElement('ul');
+        vocabulary.forEach(word => {
+            const li = document.createElement('li');
+            li.innerText = word.greek + ' - ' + word.english;
+            ul.appendChild(li);
+        });
+        vocabularySection.appendChild(ul);
+    } else {
+        const p = document.createElement('p');
+        p.innerHTML = 'No vocabularly for this text listed. Contribute some on <a target="_blank" href="https://github.com/gbroques/greek-texts">GitHub</a>.'
+        vocabularySection.appendChild(p);
+    }
 }
 
 function createSpan(cue, idPrefix, audio) {
