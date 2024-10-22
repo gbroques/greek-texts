@@ -3,7 +3,7 @@
  * Convenience script for adding a new text.
  *
  * This creates a directory in the root of the repository
- * matching the title of the text and, a minimal config.json
+ * matching the title of the text, and a minimal config.json
  * file in that directory based on the optional prompts.
  *
  * Requires Node.js to be installed.
