@@ -35,9 +35,10 @@ export default function createRoot(root) {
             const cuesPromise = configPromise
                 .then(config => fetchCuesWithCaching(path + '/' + config.vtt));
             return Promise.all([configPromise, cuesPromise]).then(([config, cues]) => {
-                const {audio: audioSrc, markup, speaker, source} = config;
+                const {audio: audioSrc, speaker, source} = config;
                 const vocabulary = config.vocabulary ?? [];
                 const image = config.img ?? {};
+                const markup = config.markup ?? [];
                 article.innerHTML = '';
                 audio.src = path + '/' + audioSrc;
                 const cueById = groupCueById(cues);
