@@ -11,36 +11,36 @@
   },
   "vocabulary": [
     {
-      "greek": "αλλιώς",
-      "english": "otherwise, differently"
+      "source": "αλλιώς",
+      "translation": "otherwise, differently"
     },
     {
-      "greek": "γνώμη",
-      "english": "opinion"
+      "source": "γνώμη",
+      "translation": "opinion"
     },
     {
-      "greek": "καβούρια",
-      "english": "crabs"
+      "source": "καβούρια",
+      "translation": "crabs"
     },
     {
-      "greek": "πάλι καλά",
-      "english": "thank God"
+      "source": "πάλι καλά",
+      "translation": "thank God"
     },
     {
-      "greek": "προσφέρεται",
-      "english": "is offered"
+      "source": "προσφέρεται",
+      "translation": "is offered"
     },
     {
-      "greek": "τρελαίνεται",
-      "english": "(he / she) is crazy (about)"
+      "source": "τρελαίνεται",
+      "translation": "(he / she) is crazy (about)"
     },
     {
-      "greek": "φαγάς",
-      "english": "eater"
+      "source": "φαγάς",
+      "translation": "eater"
     },
     {
-      "greek": "ψαράδες",
-      "english": "fisherman"
+      "source": "ψαράδες",
+      "translation": "fisherman"
     }
   ],
   "markup": [

@@ -11,32 +11,32 @@
   },
   "vocabulary": [
     {
-      "greek": "αρνητικά",
-      "english": "negative"
+      "source": "αρνητικά",
+      "translation": "negative"
     },
     {
-      "greek": "ευχαριστημένοι",
-      "english": "happy, pleasant"
+      "source": "ευχαριστημένοι",
+      "translation": "happy, pleasant"
     },
     {
-      "greek": "ευχάριστο",
-      "english": "pleasant"
+      "source": "ευχάριστο",
+      "translation": "pleasant"
     },
     {
-      "greek": "λιπαρές",
-      "english": "fatty"
+      "source": "λιπαρές",
+      "translation": "fatty"
     },
     {
-      "greek": "ξενυχτάς",
-      "english": "be up, cram, pull an all nighter"
+      "source": "ξενυχτάς",
+      "translation": "be up, cram, pull an all nighter"
     },
     {
-      "greek": "όσο",
-      "english": "as much as, as long as, while"
+      "source": "όσο",
+      "translation": "as much as, as long as, while"
     },
     {
-      "greek": "πληρώνεσαι",
-      "english": "you get paid"
+      "source": "πληρώνεσαι",
+      "translation": "you get paid"
     }
   ],
   "markup": [

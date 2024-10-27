@@ -223,7 +223,7 @@ function createVocabularlyList(vocabulary, vocabularySection) {
         const ul = document.createElement('ul');
         vocabulary.forEach(word => {
             const li = document.createElement('li');
-            li.innerText = word.greek + ' - ' + word.english;
+            li.innerText = word.source + ' - ' + word.translation;
             ul.appendChild(li);
         });
         vocabularySection.appendChild(ul);

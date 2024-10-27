@@ -48,8 +48,8 @@ const config = JSON.stringify({
   },
   "vocabulary": [...Array(numberOfVocabularyWords)].map(() => (
       {
-        "greek": "",
-        "english": ""
+        "source": "",
+        "translation": ""
       }
   )),
   "markup": [

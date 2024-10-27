@@ -11,24 +11,24 @@
   },
   "vocabulary": [
     {
-      "greek": "άνετα",
-      "english": "comfortable, comfortably"
+      "source": "άνετα",
+      "translation": "comfortable, comfortably"
     },
     {
-      "greek": "γούνα",
-      "english": "fur"
+      "source": "γούνα",
+      "translation": "fur"
     },
     {
-      "greek": "ξύνουν",
-      "english": "scratch"
+      "source": "ξύνουν",
+      "translation": "scratch"
     },
     {
-      "greek": "πηγούνι",
-      "english": "chin"
+      "source": "πηγούνι",
+      "translation": "chin"
     },
     {
-      "greek": "τσιντσιλά",
-      "english": "chinchilla"
+      "source": "τσιντσιλά",
+      "translation": "chinchilla"
     }
   ],
   "markup": [

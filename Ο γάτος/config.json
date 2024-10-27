@@ -11,32 +11,32 @@
   },
   "vocabulary": [
     {
-      "greek": "διώχνει",
-      "english": "chases out, gets rid of, drives"
+      "source": "διώχνει",
+      "translation": "chases out, gets rid of, drives"
     },
     {
-      "greek": "ζημιές",
-      "english": "losses, damages, harm"
+      "source": "ζημιές",
+      "translation": "losses, damages, harm"
     },
     {
-      "greek": "μαλώνουν",
-      "english": "scold, fight"
+      "source": "μαλώνουν",
+      "translation": "scold, fight"
     },
     {
-      "greek": "νιαουρίζω",
-      "english": "meow"
+      "source": "νιαουρίζω",
+      "translation": "meow"
     },
     {
-      "greek": "προσέχω",
-      "english": "I watch, pay attention to, observe"
+      "source": "προσέχω",
+      "translation": "I watch, pay attention to, observe"
     },
     {
-      "greek": "σκαρφαλώνει",
-      "english": "he climbs"
+      "source": "σκαρφαλώνει",
+      "translation": "he climbs"
     },
     {
-      "greek": "συνέχεια",
-      "english": "continuation (noun), constantly (adverb)"
+      "source": "συνέχεια",
+      "translation": "continuation (noun), constantly (adverb)"
     }
   ],
   "markup": [
